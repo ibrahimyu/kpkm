@@ -7,27 +7,38 @@ angular.module('boilerplate')
 		$scope.sdm = data;
 	});
 
-	$scope.deleteSDM = function(id) {
-		$http.delete(prefix + '/sdm/' + id).success(function(data) {
+	$scope.deleteSDM = function(item) {
+		$scope.currentItem = item;
+	};
+
+	$scope.confirmDelete = function() {
+		$http.delete(prefix + '/sdm/' + $scope.currentItem.id).success(function(data) {
 			// success.
 		});
+
+		alert('Success!');
+	};
+
+	$scope.cancelDelete = function() {
+		$scope.currentItem = {};
 	};
 })
 
-.controller('AddSdmCtrl', function($scope, $http) {
+.controller('AddSdmCtrl', function($scope, $http, $state) {
 	$scope.app.title = 'Tambah SDM';
 
 	$scope.simpanSDM = function() {
 		$http.post(prefix + '/sdm', $scope.sdm).success(function(data) {
 			// success!
+			$state.go('sdm');
 		});
 	};
 })
 
 .controller('EditSdmCtrl', function($scope, $http, $stateParams) {
-	$scope.add.title = 'Edit SDM';
+	$scope.app.title = 'Edit SDM';
 
-	$http.get(prefix + '/sdm/' + stateParams.id).success(function(data) {
+	$http.get(prefix + '/sdm/' + $stateParams.id).success(function(data) {
 		$scope.sdm = data;
 	});
 

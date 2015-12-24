@@ -3,6 +3,10 @@
 
 		<a class="btn btn-primary" ui-sref="tambahSdm">Tambah SDM</a>
 
+		<div class="alert alert-danger" ng-if="currentItem.id" style="margin-top: 10px;">
+			Yakin ingin menghapus? <a ng-click="confirmDelete()">OK</a> | <a ng-click="cancelDelete()">Cancel</a>
+		</div>
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -11,6 +15,7 @@
 					<th>Tanggal Lahir</th>
 					<th>Alamat</th>
 					<th>Spesialis</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -20,6 +25,10 @@
 					<td>{{ item.tgl_lahir }}</td>
 					<td>{{ item.alamat }}</td>
 					<td>{{ item.spesialis }}</td>
+					<td>
+						<button class="btn btn-sm btn-success" ui-sref="editSdm({ id: item.id })">Edit</button>
+						<button class="btn btn-sm btn-danger" ng-click="deleteSDM(item)">Delete</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
