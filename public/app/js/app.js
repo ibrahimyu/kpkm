@@ -20,6 +20,12 @@ angular.module('boilerplate', ['ui.router'])
 			controller: 'AddPatientCtrl'
 		})
 
+		.state('sdm', {
+			url: '/sdm',
+			templateUrl: 'app/views/sdm.html',
+			controller: 'SdmCtrl'
+		});
+
 	$urlRouterProvider.otherwise('/');
 })
 
@@ -47,7 +53,7 @@ angular.module('boilerplate', ['ui.router'])
 	$scope.app.title = "Data Pasien";
 	$scope.isLoading = true;
 
-	$http.get('http://localhost/kpkm/public/pasien').success(function(data) {
+	$http.get('http://localhost:8000/pasien').success(function(data) {
 		$scope.pasien = data;
 		$scope.isLoading = false;
 	});

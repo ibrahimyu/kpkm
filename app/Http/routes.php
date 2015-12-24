@@ -27,3 +27,8 @@ Route::get('/add_sidebar', function () {
 Route::get('/pasien', 'controler_pasien@index');
 Route::post('/add_sidebar', 'controler_sidebar@add');
 Route::post('/sidebar_delete/{$id}', 'controler_sidebar@delete');
+
+Route::get('/sdm', 'controller_sdm@index');
+Route::post('/sdm', 'controller_sdm@store');
+Route::put('/sdm/{id}', 'controller_sdm@update');
+Route::delete('/sdm/{id}', 'controller_sdm@destroy');
