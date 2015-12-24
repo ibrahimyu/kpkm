@@ -11,6 +11,7 @@
 					<th>Jenis Kelamin</th>
 					<th>Tanggal Lahir</th>
 					<th>Alamat</th>
+					<th>Opsi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -20,6 +21,13 @@
 					<td>{{ item.kode_jenis_kelamin }}</td>
 					<td>{{ item.tgl_lahir }}</td>
 					<td>{{ item.alamat }}</td>
+					<td>
+						<div class="class="btn-group"">
+						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
+						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></button>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>

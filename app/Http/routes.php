@@ -24,6 +24,8 @@ Route::get('/add_sidebar', function () {
     return view('add_sidebar')->with('link', $link);
 });
 
+Route::post('/simpan_pasien', 'controler_pasien@simpan');
+
 Route::get('/pasien', 'controler_pasien@index');
 Route::post('/add_sidebar', 'controler_sidebar@add');
 Route::post('/sidebar_delete/{$id}', 'controler_sidebar@delete');
