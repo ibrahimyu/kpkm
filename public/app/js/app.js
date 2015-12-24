@@ -33,7 +33,7 @@ angular.module('boilerplate', ['ui.router'])
 		})
 
 		.state('editSdm', {
-			url: '/sdm/edit',
+			url: '/sdm/edit/:id',
 			templateUrl: 'app/views/addSdm.html',
 			controller: 'EditSdmCtrl'
 		});

@@ -277,6 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?php echo asset('bower_components/angular/angular.min.js');?>"></script>
     <script src="<?php echo asset('bower_components/angular-ui-router/release/angular-ui-router.min.js');?>"></script>
 
+    <script src="<?php echo asset('app/js/prefix.js');?>"></script>
     <script src="<?php echo asset('app/js/app.js');?>"></script>
     <script src="<?php echo asset('app/js/home.js');?>"></script>
     <script src="<?php echo asset('app/js/nav.js');?>"></script>
