@@ -65,10 +65,39 @@ angular.module('boilerplate', ['ui.router'])
 	$scope.app.title = "Data Pasien";
 	$scope.isLoading = true;
 
-	$http.get('http://localhost:8000/pasien').success(function(data) {
-		$scope.pasien = data;
-		$scope.isLoading = false;
-	});
+	$scope.currentPage = 1;
+
+	var getData = function() {
+		$http.get('http://localhost:8000/pasien?page=' + $scope.currentPage).success(function(data) {
+			$scope.pasien = data;
+			$scope.isLoading = false;
+		});
+	};
+
+	$scope.nextPage = function() {
+		if ($scope.currentPage < $scope.pasien.last_page)
+		{
+			$scope.currentPage++;
+			getData();
+		}
+	};
+
+	$scope.prevPage = function() {
+		if ($scope.currentPage > 1)
+		{
+			$scope.currentPage--;
+			getData();
+		}
+	};
+
+	getData();
+
+	$scope.doSearch = function() {
+		$http.get('http://localhost:8000/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
+			$scope.pasien = data;
+			$scope.isLoading = false;
+		});
+	};
 })
 
 .controller('AddPatientCtrl', function($scope, $http) {

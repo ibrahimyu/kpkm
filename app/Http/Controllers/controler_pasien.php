@@ -20,9 +20,21 @@ class controler_pasien extends Controller
             ]);
 
     }
-    public function index(){
-    	$link=DB::table('tab_sidebar')->get();
-    	$all=DB::table('tab_pasien')->get();
+    public function index(Request $request){
+
+        if ($request->q)
+        {
+            $q = $request->q;
+            return DB::table('tab_pasien')
+                ->where('no_rm', 'LIKE', "%$q%")
+                ->orWhere('nama', 'LIKE', "%$q")
+                ->orWhere('tempat_lahir', 'LIKE', "%$q")
+                ->orWhere('alamat', 'LIKE', "%$q")
+                ->orWhere('no_telp', 'LIKE', "%$q")
+                ->paginate(15);
+        }
+
+    	$all=DB::table('tab_pasien')->paginate(15);
         return $all;
     }
     public function simpan(Request $request){
@@ -35,7 +47,7 @@ class controler_pasien extends Controller
             'alamat',
             'no_telp'
             ]);
-        
+
         $save=DB::table('tab_pasien')->insert($data);
         return $data;
     }

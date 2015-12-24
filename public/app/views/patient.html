@@ -1,7 +1,21 @@
 <div class="panel">
 	<div class="panel-body">
 
-		<a class="btn btn-primary" ui-sref="tambahPasien">Tambah Pasien</a>
+		<div class="row">
+			<div class="col-md-6">
+				<a class="btn btn-primary" ui-sref="tambahPasien">Tambah Pasien</a>
+			</div>
+
+			<div class="col-md-6">
+
+				<form class="form form-inline pull-right">
+					<div class="form-group">
+						<input type="text" class="form-control" ng-model="search" placeholder="Search..."/>
+					</div>
+					<button class="btn btn-default" ng-click="doSearch()">Search</button>
+				</form>
+			</div>
+		</div>
 
 		<table class="table">
 			<thead>
@@ -9,17 +23,17 @@
 					<th>No RM</th>
 					<th>Nama</th>
 					<th>Jenis Kelamin</th>
-					<th>Tanggal Lahir</th>
+					<th>Tempat &amp; Tanggal Lahir</th>
 					<th>Alamat</th>
 					<th>Opsi</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in pasien">
+				<tr ng-repeat="item in pasien.data">
 					<td>{{ item.no_rm }}</td>
 					<td>{{ item.nama }}</td>
 					<td>{{ item.kode_jenis_kelamin }}</td>
-					<td>{{ item.tgl_lahir }}</td>
+					<td>{{ item.tempat_lahir ? item.tempat_lahir + ', ' : '' }}{{ item.tgl_lahir }}</td>
 					<td>{{ item.alamat }}</td>
 					<td>
 						<div class="class="btn-group"">
@@ -31,6 +45,8 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<p>Page {{ pasien.current_page }} of {{ pasien.last_page }} | <a ng-click="prevPage()" ng-if="pasien.current_page > 1">Prev</a> | <a ng-click="nextPage()" ng-if="pasien.current_page < pasien.last_page">Next</a> </p>
 
 		<h3 class="text-center" ng-if="isLoading">Loading...</h3>
 
