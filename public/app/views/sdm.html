@@ -1,0 +1,31 @@
+<div class="panel">
+	<div class="panel-body">
+
+		<a class="btn btn-primary" ui-sref="tambahSdm">Tambah SDM</a>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nama</th>
+					<th>Jenis Kelamin</th>
+					<th>Tanggal Lahir</th>
+					<th>Alamat</th>
+					<th>Spesialis</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in sdm">
+					<td>{{ item.nama }}</td>
+					<td>{{ item.kode_jenis_kelamin }}</td>
+					<td>{{ item.tgl_lahir }}</td>
+					<td>{{ item.alamat }}</td>
+					<td>{{ item.spesialis }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h3 class="text-center" ng-if="isLoading">Loading...</h3>
+
+
+	</div>
+</div>

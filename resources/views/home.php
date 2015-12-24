@@ -220,6 +220,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <span class="title">Data Pasien</span>
                 </a>
             </li>
+
+            <li class="item" ui-sref-active="active">
+                <a href="#" ui-sref="sdm">
+                    <div class="sidebar-icon" style="{{ item.color ? 'background-color:' + item.color : '' }}">
+                        <i class="fa fa-user"></i>
+                    </div>
+
+                    <span class="title">SDM</span>
+                </a>
+            </li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->
@@ -271,7 +281,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?php echo asset('app/js/home.js');?>"></script>
     <script src="<?php echo asset('app/js/nav.js');?>"></script>
     <script src="<?php echo asset('app/js/settings.js');?>"></script>
-    
+    <script src="<?php echo asset('app/js/sdm.js');?>"></script>
+
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. Slimscroll is required when using the
