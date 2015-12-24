@@ -3,12 +3,12 @@ angular.module('boilerplate')
 .controller('SdmCtrl', function($scope, $http) {
 	$scope.app.title = 'SDM';
 
-	$http.get('/sdm').success(function(data) {
+	$http.get(prefix + '/sdm').success(function(data) {
 		$scope.sdm = data;
 	});
 
 	$scope.deleteSDM = function(id) {
-		$http.delete('/sdm/' + id).success(function(data) {
+		$http.delete(prefix + '/sdm/' + id).success(function(data) {
 			// success.
 		});
 	};
@@ -18,7 +18,7 @@ angular.module('boilerplate')
 	$scope.app.title = 'Tambah SDM';
 
 	$scope.simpanSDM = function() {
-		$http.post('/sdm', $scope.sdm).success(function(data) {
+		$http.post(prefix + '/sdm', $scope.sdm).success(function(data) {
 			// success!
 		});
 	};
@@ -27,12 +27,12 @@ angular.module('boilerplate')
 .controller('EditSdmCtrl', function($scope, $http, $stateParams) {
 	$scope.add.title = 'Edit SDM';
 
-	$http.get('/sdm/' + stateParams.id).success(function(data) {
+	$http.get(prefix + '/sdm/' + stateParams.id).success(function(data) {
 		$scope.sdm = data;
 	});
 
 	$scope.simpanSDM = function() {
-		$http.put('/sdm/' + $scope.sdm.id, $scope.sdm).success(function(data) {
+		$http.put(prefix + '/sdm/' + $scope.sdm.id, $scope.sdm).success(function(data) {
 
 		});
 	};
