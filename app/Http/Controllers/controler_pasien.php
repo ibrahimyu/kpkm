@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 use redirect;
+use Input;
 class controler_pasien extends Controller
 {
     public function lihat(){
@@ -23,5 +24,19 @@ class controler_pasien extends Controller
     	$link=DB::table('tab_sidebar')->get();
     	$all=DB::table('tab_pasien')->get();
         return $all;
+    }
+    public function simpan(Request $request){
+        $data= $request->only([
+            'no_rm',
+            'nama',
+            'kode_jenis_kelamin',
+            'tempat_lahir',
+            'tgl_lahir',
+            'alamat',
+            'no_telp'
+            ]);
+        
+        $save=DB::table('tab_pasien')->insert($data);
+        return $data;
     }
 }

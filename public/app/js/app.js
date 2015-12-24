@@ -71,8 +71,13 @@ angular.module('boilerplate', ['ui.router'])
 	});
 })
 
-.controller('AddPatientCtrl', function($scope) {
+.controller('AddPatientCtrl', function($scope, $http) {
 	$scope.app.title = "Tambah Pasien";
+	$scope.simpanPasien=function(){
+	$http.post('http://localhost/kpkm/public/simpan_pasien',$scope.pasien).success(function(){
+
+	})
+	};
 })
 
 .run();
