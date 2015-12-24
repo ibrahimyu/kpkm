@@ -24,6 +24,18 @@ angular.module('boilerplate', ['ui.router'])
 			url: '/sdm',
 			templateUrl: 'app/views/sdm.html',
 			controller: 'SdmCtrl'
+		})
+
+		.state('tambahSdm', {
+			url: '/sdm/add',
+			templateUrl: 'app/views/addSdm.html',
+			controller: 'AddSdmCtrl'
+		})
+
+		.state('editSdm', {
+			url: '/sdm/edit',
+			templateUrl: 'app/views/addSdm.html',
+			controller: 'EditSdmCtrl'
 		});
 
 	$urlRouterProvider.otherwise('/');

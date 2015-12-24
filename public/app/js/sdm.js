@@ -14,8 +14,8 @@ angular.module('boilerplate')
 	};
 })
 
-.controller('TambahSdmCtrl', function($scope, $http) {
-	$scope.add.title = 'Tambah SDM';
+.controller('AddSdmCtrl', function($scope, $http) {
+	$scope.app.title = 'Tambah SDM';
 
 	$scope.simpanSDM = function() {
 		$http.post('/sdm', $scope.sdm).success(function(data) {
@@ -24,8 +24,12 @@ angular.module('boilerplate')
 	};
 })
 
-.controller('EditSdmCtrl', function($scope, $http) {
+.controller('EditSdmCtrl', function($scope, $http, $stateParams) {
 	$scope.add.title = 'Edit SDM';
+
+	$http.get('/sdm/' + stateParams.id).success(function(data) {
+		$scope.sdm = data;
+	});
 
 	$scope.simpanSDM = function() {
 		$http.put('/sdm/' + $scope.sdm.id, $scope.sdm).success(function(data) {
