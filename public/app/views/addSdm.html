@@ -1,27 +1,24 @@
-<div class="form">
-	<div class="form-group">
-		<label class="control-label">Nama</label>
-		<input class="form-control" ng-model="sdm.nama"/>
-	</div>
-
-	<div class="form-group">
-		<label class="control-label">Jenis Kelamin</label>
-		<select class="form-control" ng-model="sdm.kode_jenis_kelamin">
-			<option value="01">Laki-laki</option>
-			<option value="02">Perempuan</option>
-		</select>
-	</div>
-
-	<div class="form-group">
-		<label class="control-label">Tanggal Lahir</label>
-		<input class="form-control" ng-model="sdm.tgl_lahir"/>
-	</div>
-
-	<div class="form-group">
-		<label class="control-label">Alamat</label>
-		<input class="form-control" ng-model="sdm.alamat"/>
-	</div>
-
-	<button class="btn btn-primary" ng-click="simpanSDM()">Simpan</button>
-	<a class="btn btn-primary" href="#/sdm">Batal</a>
+<form class="form">
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Nama" ng-model="sdm.nama"></div>
+<div class="form-group">
+<select class="form-control" ng-model="gender">
+	<option value="01">Laki-Laki</option>
+	<option value="02">Perempuan</option>
+</select>
 </div>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Tempat Lahir" ng-model="sdm.tempat_lahir"></div>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Tanggal Lahir" ng-model="sdm.tgl_lahir"></div>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Divisi" ng-model="sdm.divisi"></div>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="No Izin" ng-model="sdm.no_izin"></div>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="Alamat" ng-model="sdm.alamat"></div>
+<div class="form-group">
+<input type="text" class="form-control" placeholder="No Tlp" ng-model="sdm.no_telp"></div>
+<div class="form-group">
+<button class="btn btn-primary" ng-click="simpanSDM()"> Simpan</button>
+</form>

@@ -19,10 +19,6 @@ Route::get('/sidebar', function () {
 	$link=DB::table('tab_sidebar')->get();
     return view('sidebar_view')->with('link', $link);
 });
-Route::get('/add_sidebar', function () {
-    $link=DB::table('tab_sidebar')->get();
-    return view('add_sidebar')->with('link', $link);
-});
 
 Route::post('/simpan_pasien', 'controler_pasien@simpan');
 
@@ -32,6 +28,6 @@ Route::post('/sidebar_delete/{$id}', 'controler_sidebar@delete');
 
 Route::get('/sdm', 'controller_sdm@index');
 Route::get('/sdm/{id}', 'controller_sdm@show');
-Route::post('/sdm', 'controller_sdm@store');
+Route::post('/sdm', 'controller_sdm@simpan');
 Route::put('/sdm/{id}', 'controller_sdm@update');
 Route::delete('/sdm/{id}', 'controller_sdm@destroy');

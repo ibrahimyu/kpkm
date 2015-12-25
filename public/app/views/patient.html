@@ -12,7 +12,7 @@
 					<div class="form-group">
 						<input type="text" class="form-control" ng-model="search" placeholder="Search..."/>
 					</div>
-					<button class="btn btn-default" ng-click="doSearch()">Search</button>
+					<button class="btn btn-default" ng-click="doSearch()"><i class="glyphicon glyphicon-search"></i> </button>
 				</form>
 			</div>
 		</div>
@@ -35,9 +35,9 @@
 					<td>{{ item.gender }}</td>
 					<td>{{ item.tempat_lahir ? item.tempat_lahir + ', ' : '' }}{{ item.tgl_lahir }}</td>
 					<td>{{ item.alamat }}</td>
-					<td>
+					<td class="pull-right">
 						<div class="class="btn-group"">
-						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+						<a  class="btn btn-default"><i class="glyphicon glyphicon-search"></i></a>
 						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
 						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></button>
 						</div>
@@ -58,7 +58,7 @@
 				</a>
 			</li>
 			<li>
-				<a class="btn btn-default" ng-click="nextPage()" ng-if="pasien.current_page < sdm.last_page"> Next </a>
+				<a class="btn btn-default" ng-click="nextPage()" ng-if="pasien.current_page < pasien.last_page"> Next </a>
 			</li>
 			<li>
 				<a class="btn btn-default" ng-click="lastPage()">Last</a>

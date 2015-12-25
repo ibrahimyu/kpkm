@@ -60,14 +60,13 @@ angular.module('boilerplate')
 	};
 })
 
-.controller('AddSdmCtrl', function($scope, $http, $state) {
-	$scope.app.title = 'Tambah SDM';
 
-	$scope.simpanSDM = function() {
-		$http.post(prefix + '/sdm', $scope.sdm).success(function(data) {
-			// success!
-			$state.go('sdm');
-		});
+.controller('AddSdmCtrl', function($scope, $http, $state) {
+	$scope.app.title = "Tambah SDM";
+	$scope.simpanSDM=function(){
+	$http.post(prefix + '/sdm',$scope.sdm).success(function(){
+		$state.go('sdm');
+	})
 	};
 })
 

@@ -60,6 +60,9 @@ angular.module('boilerplate', ['ui.router'])
 		})
 	});
 })
+//----------- patient----------
+
+angular.module('boilerplate')
 
 .controller('PatientCtrl', function($scope, $http) {
 	$scope.app.title = "Data Pasien";
@@ -108,13 +111,16 @@ angular.module('boilerplate', ['ui.router'])
 	};
 })
 
-.controller('AddPatientCtrl', function($scope, $http) {
+.controller('AddPatientCtrl', function($scope, $http, $state) {
 	$scope.app.title = "Tambah Pasien";
 	$scope.simpanPasien=function(){
 	$http.post(prefix + '/simpan_pasien',$scope.pasien).success(function(){
-
+		$state.go('patient');
 	})
 	};
 })
+
+
+
 
 .run();

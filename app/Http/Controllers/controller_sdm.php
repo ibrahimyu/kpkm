@@ -4,20 +4,10 @@ namespace App\Http\Controllers;
 use DB;
 class controller_sdm extends Controller
 {
-	public function index(Request $request)
+	 function index()
 	{
-		
-		//if ($request->q) 
-		//{
-		//	$q = $request->q;
-		//	$data=DB::table('tab_sdm')
-		//	->where('nama', 'LIKE', "%$q%")->paginate(3);
-		//	return $data;
-		//}else{
-
 		$all=DB::table('tab_sdm')->paginate(2);
 		return $all;
-		//}
 	}
 
 	function show($id)
@@ -25,9 +15,19 @@ class controller_sdm extends Controller
 		return json_encode(\DB::table('tab_sdm')->find($id));
 	}
 
-	function store()
-	{
-
+	public function simpan(Request $request){
+		$data= $request->only([
+			'nama',
+			'gender',
+			'tempat_lahir',
+			'tgl_lahir',
+			'divisi',
+			'no_izin',
+			'alamat',
+			'no_tlp'
+			]);
+		$save=DB::table('tab_sdm')->insert($data);
+		return $data;
 	}
 
 	function update($id)
