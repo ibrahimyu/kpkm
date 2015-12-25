@@ -68,7 +68,7 @@ angular.module('boilerplate', ['ui.router'])
 	$scope.currentPage = 1;
 
 	var getData = function() {
-		$http.get('http://localhost:8000/pasien?page=' + $scope.currentPage).success(function(data) {
+		$http.get(prefix + '/pasien?page=' + $scope.currentPage).success(function(data) {
 			$scope.pasien = data;
 			$scope.isLoading = false;
 		});
@@ -89,11 +89,19 @@ angular.module('boilerplate', ['ui.router'])
 			getData();
 		}
 	};
+	$scope.firstPage=function(){
+		$scope.currentPage= $scope.pasien.first_page;
+		getData();
+	};
+	$scope.lastPage=function(){
+		$scope.currentPage=$scope.pasien.last_page;
+		getData();
+	};
 
 	getData();
 
 	$scope.doSearch = function() {
-		$http.get('http://localhost:8000/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
+		$http.get(prefix + '/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
 			$scope.pasien = data;
 			$scope.isLoading = false;
 		});
@@ -103,7 +111,7 @@ angular.module('boilerplate', ['ui.router'])
 .controller('AddPatientCtrl', function($scope, $http) {
 	$scope.app.title = "Tambah Pasien";
 	$scope.simpanPasien=function(){
-	$http.post('http://localhost/kpkm/public/simpan_pasien',$scope.pasien).success(function(){
+	$http.post(prefix + '/simpan_pasien',$scope.pasien).success(function(){
 
 	})
 	};

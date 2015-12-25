@@ -32,7 +32,7 @@
 				<tr ng-repeat="item in pasien.data">
 					<td>{{ item.no_rm }}</td>
 					<td>{{ item.nama }}</td>
-					<td>{{ item.kode_jenis_kelamin }}</td>
+					<td>{{ item.gender }}</td>
 					<td>{{ item.tempat_lahir ? item.tempat_lahir + ', ' : '' }}{{ item.tgl_lahir }}</td>
 					<td>{{ item.alamat }}</td>
 					<td>
@@ -45,9 +45,26 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<p>Page {{ pasien.current_page }} of {{ pasien.last_page }} | <a ng-click="prevPage()" ng-if="pasien.current_page > 1">Prev</a> | <a ng-click="nextPage()" ng-if="pasien.current_page < pasien.last_page">Next</a> </p>
-
+		<ul class="pagination pagination-sm no-margin pull-left">
+			<li>
+				<a class="btn btn-default" ng-click="firstPage()">First</a>
+			</li>
+			<li>
+				<a class="btn btn-default" ng-click="prevPage()" ng-if="pasien.current_page >1"> Prev.. </a>
+			</li>
+			<li>
+				<a>
+					Page {{ pasien.current_page }} of {{ pasien.last_page }}
+				</a>
+			</li>
+			<li>
+				<a class="btn btn-default" ng-click="nextPage()" ng-if="pasien.current_page < sdm.last_page"> Next </a>
+			</li>
+			<li>
+				<a class="btn btn-default" ng-click="lastPage()">Last</a>
+			</li>
+		</ul>
+		
 		<h3 class="text-center" ng-if="isLoading">Loading...</h3>
 
 
