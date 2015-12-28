@@ -36,23 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <!--
-  BODY TAG OPTIONS:
-  =================
-  Apply one or more of the following classes to get the
-  desired effect
-  | SKINS         | skin-blue                               |
-  |               | skin-black                              |
-  |               | skin-purple                             |
-  |               | skin-yellow                             |
-  |               | skin-red                                |
-  |               | skin-green                              |
-  |LAYOUT OPTIONS | fixed                                   |
-  |               | layout-boxed                            |
-  |               | layout-top-nav                          |
-  |               | sidebar-collapse                        |
-  |               | sidebar-mini                            |
-  -->
+
   <body class="hold-transition skin-black-light sidebar-mini fixed">
     <div class="wrapper">
 
@@ -186,7 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img ng-src="{{ app.user.avatar }}" class="img-circle" alt="User Image">
+              <img src="{{('../public/web/dist/img/avatar.png')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
               <p>{{ app.user.fullname }}</p>
@@ -214,7 +198,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="item" ui-sref-active="active">
                 <a href="#" ui-sref="patient">
                     <div class="sidebar-icon" style="{{ item.color ? 'background-color:' + item.color : '' }}">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-bed"></i>
                     </div>
 
                     <span class="title">Data Pasien</span>
@@ -224,12 +208,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="item" ui-sref-active="active">
                 <a href="#" ui-sref="sdm">
                     <div class="sidebar-icon" style="{{ item.color ? 'background-color:' + item.color : '' }}">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-user-md"></i>
                     </div>
 
                     <span class="title">SDM</span>
                 </a>
             </li>
+            
+
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

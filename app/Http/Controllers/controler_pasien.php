@@ -12,11 +12,11 @@ use Input;
 class controler_pasien extends Controller
 {
     public function lihat(){
-        $link=DB::table('tab_sidebar')->get();
+
         $all=DB::table('tab_pasien')->get();
         return view('pasien')->with([
-            'pasien'=>$all,
-            'link'=>$link
+            'pasien'=>$all
+
             ]);
 
     }

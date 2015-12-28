@@ -38,6 +38,12 @@ angular.module('boilerplate', ['ui.router'])
 			controller: 'EditSdmCtrl'
 		});
 
+		.state('user', {
+			url: '/user',
+			templateUrl: 'app/views/user.html',
+			controller: 'UserCtrl'
+		})
+
 	$urlRouterProvider.otherwise('/');
 })
 
@@ -61,8 +67,6 @@ angular.module('boilerplate', ['ui.router'])
 	});
 })
 //----------- patient----------
-
-angular.module('boilerplate')
 
 .controller('PatientCtrl', function($scope, $http) {
 	$scope.app.title = "Data Pasien";
@@ -120,7 +124,12 @@ angular.module('boilerplate')
 	};
 })
 
+.controller('UserCtrl', function($scope, $http, $state){
+  $scope.app.title="User";
+  $http.get(prefix + '/user').success(function(data){
+    $scope.user=data;
+  });
 
-
+})
 
 .run();
