@@ -1,19 +1,8 @@
 <div class="panel">
 	<div class="panel-body">
-	<div class="row">
-		<div class="col-md-6">
-		<a class="btn btn-primary" ui-sref="tambahSdm">Tambah SDM</a>
-	</div>
-	<div class="col-md-6">
-		<form class="form form-inline pull-right">
-			<div class="form-group">
-				<input type="text" placeholder="Search by Name" class="form-control" ng-model="search">
-			</div>
-			<button class="btn btn-primary" ng-click="doSearch()"><i class="glyphicon glyphicon-search"></i> </button>
-		</form>
-	</div>
 
-	</div>
+		<a class="btn btn-primary" ui-sref="tambahSdm">Tambah SDM</a>
+
 		<div class="alert alert-danger" ng-if="currentItem.id" style="margin-top: 10px;">
 			Yakin ingin menghapus? <a ng-click="confirmDelete()">OK</a> | <a ng-click="cancelDelete()">Cancel</a>
 		</div>
@@ -30,9 +19,9 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="item in sdm.data">
+				<tr ng-repeat="item in sdm">
 					<td>{{ item.nama }}</td>
-					<td>{{ item.gender }}</td>
+					<td>{{ item.kode_jenis_kelamin }}</td>
 					<td>{{ item.tgl_lahir }}</td>
 					<td>{{ item.alamat }}</td>
 					<td>{{ item.divisi }}</td>
@@ -44,24 +33,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<ul class="pagination pagination-sm no-margin pull-left">
-			<li>
-				<a class="btn btn-default" ng-click="firstPage()">First</a>
-			</li>
-			<li>
-				<a class="btn btn-default" ng-click="prevPage()" ng-if="sdm.current_page >1"> Prev.. </a>
-			</li>
-			<li>
-			<a>	Page {{sdm.current_page}} of {{sdm.last_page}}</a>
-			</li>
-			<li>
-				<a class="btn btn-default" ng-click="nextPage()" ng-if="sdm.current_page < sdm.last_page"> Next </a>
-			</li>
-			<li>
-				<a class="btn btn-default" ng-click="lastPage()">Last</a>
-			</li>
-		</ul>
-		
+
 		<h3 class="text-center" ng-if="isLoading">Loading...</h3>
 
 

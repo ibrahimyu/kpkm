@@ -32,16 +32,16 @@ class controler_pasien extends Controller
                 ->orWhere('alamat', 'LIKE', "%$q")
                 ->orWhere('no_telp', 'LIKE', "%$q")
                 ->paginate(15);
-        }else{
+        }
+
     	$all=DB::table('tab_pasien')->paginate(15);
         return $all;
-        }
     }
     public function simpan(Request $request){
         $data= $request->only([
             'no_rm',
             'nama',
-            'gender',
+            'kode_jenis_kelamin',
             'tempat_lahir',
             'tgl_lahir',
             'alamat',
