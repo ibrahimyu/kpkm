@@ -6,13 +6,13 @@
 	<input class="form-control"  placeholder="Nama" type="text" ng-model="pasien.nama">
 	</div>
 	<div class="form-group">
-	<input class="form-control"  placeholder="Gender" type="text" ng-model="pasien.kode_jenis_kelamin">
+	<input class="form-control"  placeholder="Gender" type="text" ng-model="pasien.gender">
 	</div>
 	<div class="form-group">
 	<input class="form-control"  placeholder="Tempat Lahir" type="text" ng-model="pasien.tempat_lahir">
 	</div>
 	<div class="form-group">
-	<input class="form-control"  placeholder="Tanggal lahir" type="text" ng-model="pasien.tgl_lahir">
+	<input class="form-control"  placeholder="tttt-bb-hh" type="text" ng-model="pasien.tgl_lahir">
 	</div>
 	<div class="form-group">
 	<input class="form-control"  placeholder="Alamat" type="text" ng-model="pasien.alamat">
@@ -20,8 +20,5 @@
 	<div class="form-group">
 	<input class="form-control"  placeholder="No Tlp" type="text" ng-model="pasien.no_telp">
 	</div>
-
-	<pre>{{ pasien | json }}</pre>
-
 	<button class="btn btn-primary" ng-click="simpanPasien()">Simpan</button>
 </form>

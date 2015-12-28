@@ -2,11 +2,47 @@ angular.module('boilerplate')
 
 .controller('SdmCtrl', function($scope, $http) {
 	$scope.app.title = 'SDM';
+	$scope.currentPage=1;
 
-	$http.get(prefix + '/sdm').success(function(data) {
-		$scope.sdm = data;
-	});
-
+	var getData=function(){
+		$http.get(prefix +'/sdm?page=' +$scope.currentPage).success(function(data){
+			$scope.sdm = data;
+			$scope.isLoading=false;
+		});
+	};
+	$scope.nextPage=function(){
+		if ($scope.currentPage < $scope.sdm.last_page)
+		{
+			$scope.currentPage ++;
+			getData();
+		}
+	};
+	$scope.prevPage=function(){
+		if ($scope.currentPage > 1)
+		{
+			$scope.currentPage --;
+			getData();
+		}
+	};
+	$scope.lastPage=function(){
+		$scope.currentPage = $scope.sdm.last_page;
+		getData();
+	};
+	$scope.firstPage=function(){
+		$scope.currentPage = $scope.sdm.first_page;
+		getData();
+	};
+	
+	getData();
+	//$http.get(prefix + '/sdm').success(function(data) {
+	//	$scope.sdm = data;
+	//});
+	$scope.doSearch = function() {
+		$http.get(prefix + '/sdm?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
+			$scope.sdm = data;
+			$scope.isLoading = false;
+		});
+	};
 	$scope.deleteSDM = function(item) {
 		$scope.currentItem = item;
 	};
@@ -24,14 +60,13 @@ angular.module('boilerplate')
 	};
 })
 
-.controller('AddSdmCtrl', function($scope, $http, $state) {
-	$scope.app.title = 'Tambah SDM';
 
-	$scope.simpanSDM = function() {
-		$http.post(prefix + '/sdm', $scope.sdm).success(function(data) {
-			// success!
-			$state.go('sdm');
-		});
+.controller('AddSdmCtrl', function($scope, $http, $state) {
+	$scope.app.title = "Tambah SDM";
+	$scope.simpanSDM=function(){
+	$http.post(prefix + '/sdm',$scope.sdm).success(function(){
+		$state.go('sdm');
+	})
 	};
 })
 
