@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 class controller_sdm extends Controller
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 function index()
 	{
 		$all=DB::table('tab_sdm')->paginate(2);
 		return $all;
+=======
+	function index()
+	{
+		return \DB::table('tab_sdm')->get();
+>>>>>>> parent of 42e7774... pagination + search
 =======
 	function index()
 	{

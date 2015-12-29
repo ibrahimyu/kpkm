@@ -111,9 +111,12 @@ angular.module('boilerplate', ['ui.router'])
 	$scope.app.title = "Tambah Pasien";
 	$scope.simpanPasien=function(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 	$http.post(prefix + '/simpan_pasien',$scope.pasien).success(function(){
 		$state.go('patient');
 =======
+=======
+>>>>>>> parent of 42e7774... pagination + search
 	$http.post('http://localhost/kpkm/public/simpan_pasien',$scope.pasien).success(function(){
 
 >>>>>>> parent of 42e7774... pagination + search
