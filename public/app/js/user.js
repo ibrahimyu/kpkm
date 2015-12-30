@@ -4,5 +4,4 @@ angular.module('boilerplate')
   $http.get(prefix + '/user').success(function(data){
     $scope.user=data;
   });
-
 })

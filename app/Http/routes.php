@@ -19,5 +19,5 @@ Route::post('/sidebar_delete/{$id}', 'controler_sidebar@delete');
 Route::get('/sdm', 'controller_sdm@index');
 Route::get('/sdm/{id}', 'controller_sdm@show');
 Route::post('/sdm', 'controller_sdm@simpan');
-Route::put('/sdm/{id}', 'controller_sdm@update');
+Route::post('/sdm/{id}', 'controller_sdm@update');
 Route::delete('/sdm/{id}', 'controller_sdm@destroy');

@@ -218,7 +218,7 @@
       <footer class="main-footer">
         <div class="container">
           <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.0
+            <b>Version</b> 1.1.0
           </div>
           <strong>KPKM App Copyright &copy; <?php echo date('Y')?> .</strong> All rights reserved.
         </div><!-- /.container -->

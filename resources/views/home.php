@@ -269,6 +269,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="<?php echo asset('app/js/nav.js');?>"></script>
     <script src="<?php echo asset('app/js/settings.js');?>"></script>
     <script src="<?php echo asset('app/js/sdm.js');?>"></script>
+    <script src="<?php echo asset('app/js/patient.js');?>"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the

@@ -19,17 +19,18 @@ class controller_sdm extends Controller
 
 	public function simpan(Request $request){
 		$data= $request->only([
-			'nama',
+			'code',
+			'fullname',
 			'gender',
-			'tempat_lahir',
-			'tgl_lahir',
+			'tanggal_lahir',
 			'divisi',
-			'no_izin',
+			'sip',
 			'alamat',
-			'no_telp'
+			'tlp',
+			'jadwal_praktik'
 			]);
-		$save=DB::table('stafs')->insert($data);
-		return $save;
+		$save=DB::table('stafs')->where('id','=','id')->insert($data);
+		return $data;
 	}
 
 	function update($id)

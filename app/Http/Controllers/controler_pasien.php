@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -55,6 +53,6 @@ class controler_pasien extends Controller
             ]);
 
         $save=DB::table('pasiens')->insert($data);
-        return $save;
+        return $data;
     }
 }
