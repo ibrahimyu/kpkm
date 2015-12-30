@@ -36,7 +36,7 @@ angular.module('boilerplate', ['ui.router'])
 			url: '/sdm/edit/:id',
 			templateUrl: 'app/views/addSdm.html',
 			controller: 'EditSdmCtrl'
-		});
+		})
 
 		.state('user', {
 			url: '/user',
@@ -75,7 +75,7 @@ angular.module('boilerplate', ['ui.router'])
 	$scope.currentPage = 1;
 
 	var getData = function() {
-		$http.get('http://localhost:8000/pasien?page=' + $scope.currentPage).success(function(data) {
+		$http.get(prefix + '/pasien?page=' + $scope.currentPage).success(function(data) {
 			$scope.pasien = data;
 			$scope.isLoading = false;
 		});
@@ -96,11 +96,19 @@ angular.module('boilerplate', ['ui.router'])
 			getData();
 		}
 	};
+	$scope.lastPage=function () {
+		$scope.currentPage = $scope.pasien.last_page;
+		getData();
+	}
+	$scope.firstPage=function () {
+		$scope.currentPage = $scope.pasien.first_page;
+		getData();
+	}
 
 	getData();
 
 	$scope.doSearch = function() {
-		$http.get('http://localhost:8000/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
+		$http.get(prefix +'/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
 			$scope.pasien = data;
 			$scope.isLoading = false;
 		});
@@ -110,18 +118,10 @@ angular.module('boilerplate', ['ui.router'])
 .controller('AddPatientCtrl', function($scope, $http, $state) {
 	$scope.app.title = "Tambah Pasien";
 	$scope.simpanPasien=function(){
-<<<<<<< HEAD
-<<<<<<< HEAD
 	$http.post(prefix + '/simpan_pasien',$scope.pasien).success(function(){
-		$state.go('patient');
-=======
-=======
->>>>>>> parent of 42e7774... pagination + search
-	$http.post('http://localhost/kpkm/public/simpan_pasien',$scope.pasien).success(function(){
-
->>>>>>> parent of 42e7774... pagination + search
+				$state.go('patient');
 	})
-	};
+};
 })
 
 .controller('UserCtrl', function($scope, $http, $state){

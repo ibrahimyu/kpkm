@@ -1,30 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
+use App\Http\Requests;
+use Illuminate\Http\Request;
 class controller_sdm extends Controller
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	 function index()
 	{
-		$all=DB::table('tab_sdm')->paginate(2);
+		$all=DB::table('stafs')->paginate(2);
 		return $all;
-=======
-	function index()
-	{
-		return \DB::table('tab_sdm')->get();
->>>>>>> parent of 42e7774... pagination + search
-=======
-	function index()
-	{
-		return \DB::table('tab_sdm')->get();
->>>>>>> parent of 42e7774... pagination + search
 	}
 
 	function show($id)
 	{
-		return json_encode(\DB::table('tab_sdm')->find($id));
+		return json_encode(\DB::table('stafs')->find($id));
 	}
 
 	public function simpan(Request $request){
@@ -36,10 +26,10 @@ class controller_sdm extends Controller
 			'divisi',
 			'no_izin',
 			'alamat',
-			'no_tlp'
+			'no_telp'
 			]);
-		$save=DB::table('tab_sdm')->insert($data);
-		return $data;
+		$save=DB::table('stafs')->insert($data);
+		return $save;
 	}
 
 	function update($id)

@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ app.name }} | {{ app.title }}</title>
+    <title>KPKM</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -41,14 +41,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="wrapper">
 
       <!-- Main Header -->
-      <header class="main-header" ng-cloak>
+      <header class="main-header" >
 
         <!-- Logo -->
-        <a href="/" class="logo">
+        <a href="#/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini">S</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">{{ app.name }}</span>
+          <span class="logo-lg">KPKM</span>
         </a>
 
         <!-- Header Navbar -->
@@ -162,7 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
-      <aside class="main-sidebar" ng-cloak>
+      <aside class="main-sidebar" >
 
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <img src="{{('../public/web/dist/img/avatar.png')}}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p>{{ app.user.fullname }}</p>
+              <p>Administrator</p>
               <!-- Status -->
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
@@ -194,7 +194,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <ul class="sidebar-menu">
             <li class="header">Menu</li>
             <!-- Optionally, you can add icons to the links -->
-
             <li class="item" ui-sref-active="active">
                 <a href="#" ui-sref="patient">
                     <div class="sidebar-icon" style="{{ item.color ? 'background-color:' + item.color : '' }}">
@@ -214,9 +213,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <span class="title">SDM</span>
                 </a>
             </li>
-            
+
 
           </ul><!-- /.sidebar-menu -->
+
         </section>
         <!-- /.sidebar -->
       </aside>

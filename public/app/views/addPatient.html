@@ -1,27 +1,58 @@
-<form class="" >
-	<div class="form-group">
-	<input class="form-control"  placeholder="No RM" type="text" ng-model="pasien.no_rm">
-	</div>
-	<div class="form-group">
-	<input class="form-control"  placeholder="Nama" type="text" ng-model="pasien.nama">
-	</div>
-	<div class="form-group">
-	<input class="form-control"  placeholder="Gender" type="text" ng-model="pasien.kode_jenis_kelamin">
-	</div>
-	<div class="form-group">
-	<input class="form-control"  placeholder="Tempat Lahir" type="text" ng-model="pasien.tempat_lahir">
-	</div>
-	<div class="form-group">
-	<input class="form-control"  placeholder="tttt-bb-hh" type="text" ng-model="pasien.tgl_lahir">
-	</div>
-	<div class="form-group">
-	<input class="form-control"  placeholder="Alamat" type="text" ng-model="pasien.alamat">
-	</div>
-	<div class="form-group">
-	<input class="form-control"  placeholder="No Tlp" type="text" ng-model="pasien.no_telp">
-	</div>
 
-	<pre>{{ pasien | json }}</pre>
 
-	<button class="btn btn-primary" ng-click="simpanPasien()">Simpan</button>
-</form>
+<div class="row">
+	<div class="col-md-12">
+					 <!-- Horizontal Form -->
+					 <div class="box box-info">
+						 <div class="box-header with-border">
+							 <h3 class="box-title">Sign-in</h3>
+						 </div><!-- /.box-header -->
+						 <!-- form start -->
+						 <form class="form horozontal-form" >
+				 			<div class="form-group md-8 ">
+				 			<input class="form-control "  placeholder="No RM" type="text" ng-model="pasien.no_rm">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="No KTP" type="text" ng-model="pasien.no_ktp">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Nama" type="text" ng-model="pasien.nama">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Gender" type="text" ng-model="pasien.gender">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="tttt-bb-hh" type="text" ng-model="pasien.tanggal_lahir">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Alamat" type="text" ng-model="pasien.alamat">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Pendidikan Terakhir" type="text" ng-model="pasien.pendidikan">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Pekerjaan" type="text" ng-model="pasien.pekerjaan">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Status Pernikahan" type="text" ng-model="pasien.pernikahan">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Agama" type="text" ng-model="pasien.agama">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Status dalam Keluarga" type="text" ng-model="pasien.status_keluarga">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="No Telp" type="text" ng-model="pasien.no_telp">
+				 			</div>
+				 			<div class="form-group md-8">
+				 			<input class="form-control"  placeholder="Jaminan Kesehatan" type="text" ng-model="pasien.jaminan">
+				 			</div>
+
+				 			<pre>{{ pasien | json }}</pre>
+
+				 			<button class="btn btn-primary" ng-click="simpanPasien()">Simpan</button>
+				 		</form>
+
+</div><!-- /.box -->
+</div>

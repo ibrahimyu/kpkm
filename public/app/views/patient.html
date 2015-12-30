@@ -23,7 +23,7 @@
 					<th>No RM</th>
 					<th>Nama</th>
 					<th>Jenis Kelamin</th>
-					<th>Tempat &amp; Tanggal Lahir</th>
+					<th>Tanggal Lahir</th>
 					<th>Alamat</th>
 					<th>Opsi</th>
 				</tr>
@@ -32,11 +32,11 @@
 				<tr ng-repeat="item in pasien.data">
 					<td>{{ item.no_rm }}</td>
 					<td>{{ item.nama }}</td>
-					<td>{{ item.kode_jenis_kelamin }}</td>
-					<td>{{ item.tempat_lahir ? item.tempat_lahir + ', ' : '' }}{{ item.tgl_lahir }}</td>
+					<td>{{ item.gender }}</td>
+					<td>{{ item.tanggal_lahir }}</td>
 					<td>{{ item.alamat }}</td>
 					<td class="pull-right">
-						<div class="class="btn-group"">
+						<div class="btn-group pull-right">
 						<a  class="btn btn-default"><i class="glyphicon glyphicon-search"></i></a>
 						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></button>
 						<button type="button" class="btn btn-default"><i class="glyphicon glyphicon-trash"></i></button>
@@ -45,8 +45,7 @@
 				</tr>
 			</tbody>
 		</table>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		<ul class="pagination pagination-sm no-margin pull-left">
 			<li>
 				<a class="btn btn-default" ng-click="firstPage()">First</a>
@@ -66,17 +65,6 @@
 				<a class="btn btn-default" ng-click="lastPage()">Last</a>
 			</li>
 		</ul>
-		
-=======
-
-		<p>Page {{ pasien.current_page }} of {{ pasien.last_page }} | <a ng-click="prevPage()" ng-if="pasien.current_page > 1">Prev</a> | <a ng-click="nextPage()" ng-if="pasien.current_page < pasien.last_page">Next</a> </p>
-
->>>>>>> parent of 42e7774... pagination + search
-=======
-
-		<p>Page {{ pasien.current_page }} of {{ pasien.last_page }} | <a ng-click="prevPage()" ng-if="pasien.current_page > 1">Prev</a> | <a ng-click="nextPage()" ng-if="pasien.current_page < pasien.last_page">Next</a> </p>
-
->>>>>>> parent of 42e7774... pagination + search
 		<h3 class="text-center" ng-if="isLoading">Loading...</h3>
 
 
