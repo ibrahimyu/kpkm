@@ -1,9 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -12,11 +10,11 @@ use Input;
 class controler_pasien extends Controller
 {
     public function lihat(){
-        $link=DB::table('tab_sidebar')->get();
-        $all=DB::table('tab_pasien')->get();
+
+        $all=DB::table('pasiens')->get();
         return view('pasien')->with([
-            'pasien'=>$all,
-            'link'=>$link
+            'pasien'=>$all
+
             ]);
 
     }
@@ -25,30 +23,36 @@ class controler_pasien extends Controller
         if ($request->q)
         {
             $q = $request->q;
-            return DB::table('tab_pasien')
+            return DB::table('pasiens')
                 ->where('no_rm', 'LIKE', "%$q%")
                 ->orWhere('nama', 'LIKE', "%$q")
-                ->orWhere('tempat_lahir', 'LIKE', "%$q")
+                ->orWhere('tanggal_lahir', 'LIKE', "%$q")
                 ->orWhere('alamat', 'LIKE', "%$q")
                 ->orWhere('no_telp', 'LIKE', "%$q")
                 ->paginate(15);
-        }else{
-    	$all=DB::table('tab_pasien')->paginate(15);
-        return $all;
         }
+
+    	$all=DB::table('pasiens')->paginate(15);
+        return $all;
     }
     public function simpan(Request $request){
         $data= $request->only([
             'no_rm',
+            'no_ktp',
             'nama',
             'gender',
-            'tempat_lahir',
-            'tgl_lahir',
+            'tanggal_lahir',
             'alamat',
-            'no_telp'
+            'pendidikan',
+            'pekerjaan',
+            'pernikahan',
+            'agama',
+            'status_keluarga',
+            'no_telp',
+            'jaminan'
             ]);
 
-        $save=DB::table('tab_pasien')->insert($data);
+        $save=DB::table('pasiens')->insert($data);
         return $data;
     }
 }

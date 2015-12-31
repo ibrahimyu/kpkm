@@ -2,31 +2,34 @@
 
 namespace App\Http\Controllers;
 use DB;
+use App\Http\Requests;
+use Illuminate\Http\Request;
 class controller_sdm extends Controller
 {
 	 function index()
 	{
-		$all=DB::table('tab_sdm')->paginate(2);
+		$all=DB::table('stafs')->paginate(2);
 		return $all;
 	}
 
 	function show($id)
 	{
-		return json_encode(\DB::table('tab_sdm')->find($id));
+		return json_encode(\DB::table('stafs')->find($id));
 	}
 
 	public function simpan(Request $request){
 		$data= $request->only([
-			'nama',
+			'code',
+			'fullname',
 			'gender',
-			'tempat_lahir',
-			'tgl_lahir',
+			'tanggal_lahir',
 			'divisi',
-			'no_izin',
+			'sip',
 			'alamat',
-			'no_tlp'
+			'tlp',
+			'jadwal_praktik'
 			]);
-		$save=DB::table('tab_sdm')->insert($data);
+		$save=DB::table('stafs')->where('id','=','id')->insert($data);
 		return $data;
 	}
 

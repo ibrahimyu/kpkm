@@ -1,5 +1,4 @@
 angular.module('boilerplate')
-
 .controller('PatientCtrl', function($scope, $http) {
 	$scope.app.title = "Data Pasien";
 	$scope.isLoading = true;
@@ -28,19 +27,19 @@ angular.module('boilerplate')
 			getData();
 		}
 	};
-	$scope.firstPage=function(){
-		$scope.currentPage= $scope.pasien.first_page;
+	$scope.lastPage=function () {
+		$scope.currentPage = $scope.pasien.last_page;
 		getData();
-	};
-	$scope.lastPage=function(){
-		$scope.currentPage=$scope.pasien.last_page;
+	}
+	$scope.firstPage=function () {
+		$scope.currentPage = $scope.pasien.first_page;
 		getData();
-	};
+	}
 
 	getData();
 
 	$scope.doSearch = function() {
-		$http.get(prefix + '/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
+		$http.get(prefix +'/pasien?page=' + $scope.currentPage + '&q=' + $scope.search).success(function(data) {
 			$scope.pasien = data;
 			$scope.isLoading = false;
 		});
@@ -51,7 +50,7 @@ angular.module('boilerplate')
 	$scope.app.title = "Tambah Pasien";
 	$scope.simpanPasien=function(){
 	$http.post(prefix + '/simpan_pasien',$scope.pasien).success(function(){
-		$state.go('patient');
+				$state.go('patient');
 	})
-	};
+};
 })
